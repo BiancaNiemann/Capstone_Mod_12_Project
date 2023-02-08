@@ -29,14 +29,21 @@ function UserContextProvider({children}){
     function addImageToCart(fullImgObj){
         setCartItems(prevCartItems => [...prevCartItems, fullImgObj])
     }
-
+    //REMOVES IMAGES FROM THE CART
     function removeImageFromCart(fullImgObj){
         setCartItems(prevCartItems => prevCartItems.filter(item => item.id !== fullImgObj.id))
     }
 
     //SETUP THE PROVIDER
     return (
-        <Context.Provider value={{photos, toggleFavorite,cartItems, addImageToCart, removeImageFromCart}}>
+        <Context.Provider value={  
+                {photos, 
+                toggleFavorite,
+                cartItems, 
+                setCartItems, 
+                addImageToCart, 
+                removeImageFromCart}
+        }>
             {children}
         </Context.Provider>)
     
